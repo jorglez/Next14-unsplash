@@ -86,6 +86,11 @@ const Page: React.FC<Props> = async ({ params }) => {
               <span className="font-bold">Título: </span>
               {response.description ||
                 response.alt_description ||
+                "Imagen sin Título"}
+            </p>
+            <p className="text-xl">
+              <span className="font-bold">Descripción: </span>
+              {response.slug.replaceAll("-", " ").replace(id, "") ||
                 "Imagen sin descripción"}
             </p>
             <p className="text-xl">
