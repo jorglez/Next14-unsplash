@@ -6,6 +6,7 @@ import { unstable_noStore as noStore } from "next/cache";
 const path: string = process.env.NEXT_USP_API || ""
 const key: string = process.env.NEXT_USP_KEY || ""
 
+//Documentacion: https://unsplash.com/documentation#search-photos
 export const getPhotos = async (query: string) => {
   noStore();
   try {
@@ -17,6 +18,7 @@ export const getPhotos = async (query: string) => {
   }
 }
 
+//Documentacion: https://unsplash.com/documentation#get-a-photo
 export const getPhotoById = async (id: string) => {
   noStore();
   try {
