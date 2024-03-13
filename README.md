@@ -11,7 +11,7 @@ La app Toma imágenes de unsplash.com usando su API. **La apicación obtiene por
 
 ## Instalación
 
-El proyecto utiliza NPM, por lo cual basta con abrir la terminal y usar el comando **npm -install** después de descargar el repositorio de Github.
+El proyecto utiliza NPM, por lo cual basta con abrir la terminal y usar el comando **npm install** después de descargar el repositorio de Github.
 
 ## Ejecución del proyecto
 
