@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Prueba técnica
 
-## Getting Started
+## Jorge Luis González Vargas
 
-First, run the development server:
+## Descripción:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Proyecto en Next.js 14 con [Tailwind](https://v1.tailwindcss.com/) y [Shadcn](https://ui.shadcn.com/) para la interfaz gráfica.
+Además usa la biblioteca use-debounce para permitir que las búsqiedas se ejecuten de manera automática al pasar 450 milisegundos
+La app Toma imágenes de unsplash.com usando su API. **La apicación obtiene por default resultados de la búsqueda para "naturaleza", pero puede buscarse lo que sea**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Instalación
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+El proyecto utiliza NPM, por lo cual basta con abrir la terminal y usar el comando **npm -install** después de descargar el repositorio de Github.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Ejecución del proyecto
 
-## Learn More
+Una vez instaladas las dependencias necesarias, usa el comando **npm run dev**
 
-To learn more about Next.js, take a look at the following resources:
+## Uso de la API de Unsplash
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Para poder usar unsplash se necesita tener una cuenta para poder generar una clave de usuario:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Crear una cuenta [aquí](https://unsplash.com/es/%C3%BAnete) o iniciar sesión [aqui](https://unsplash.com/es/inicia-sesi%C3%B3n).
+2. Registra tu aplicación en la pestaña de "Tus aplicaciones".
+3. Una vez que hayas registrado tu aplicación, da click en ella y scrollea hasta la sección de **Keys**, el campo de **Access key** tiene el código que necesitas para usar la API
+4. La clave puede usarse directamente en cualquier consulta a la api de unsplash siguiendo el siguiente formato: https://api.unsplash.com/photos/?client_id={tu_clave}. Pero por seguridad se recomienda usar un archivo .env para guardar la clave en una variable, y después importarla al archivo donde hagas las consultas usando process.env.{NOBRE_DE_TU_VARIABLE}. Las variables de entorno usadas en este proyecto son: NEXT_USP_API para guardar la url de la api de unsplash, y NEXT_USP_KEY para guardar la clave de usuario.
 
-## Deploy on Vercel
+Si decides usar otros nombres para las variables de entorno, tambien debes cambiar sus nombres en el archivo de actions.ts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### formatos de búsqueda usados en la API:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Para obtener imágenes con el criterio de búsqueda deseado: https://api.unsplash.com/search/photos/?per-page=10&client_id=${key}&query=${query || "naturaleza"}
+
+- Se usa el parámetro "per-page" para limitar la cantidad de resultados por búsqueda.
+- Se buscará el término "Naturaleza" su no hay nada en el input, de manera que la página nunca se queda vacía
+
+Para obtener la información de una página en específico se usa https://api.unsplash.com/photos/${id_de_la_foto}?client_id=${key}
+
+Una vez que tengas el proyecto instalado y hayas agregado las variables necesarias en .env, el proyecto estará listo para usarse
