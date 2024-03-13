@@ -12,7 +12,7 @@ const Home: React.FC<Props> = ({ searchParams }) => {
   const query = searchParams?.query || "";
   const currentPage = searchParams?.page || "1";
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <main className="flex min-h-screen flex-col items-center p-7 md:p-24">
       <SearchBar />
       <Suspense fallback={<ResultsSkeleton />}>
         <ResultsContainer query={query} currentPage={currentPage} />

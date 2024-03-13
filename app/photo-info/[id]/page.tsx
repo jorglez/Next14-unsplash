@@ -62,7 +62,25 @@ const Page: React.FC<Props> = async ({ params }) => {
               />
             </a>
           </div>
-          <div className=" lg:ml-7">
+          <div className=" lg:ml-7 ">
+            <div className="w-full sm:w-fit mt-5 lg:mt-0 flex justify-center">
+              <a
+                href={response.links.download}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                  <svg
+                    className="fill-current w-4 h-4 mr-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                  </svg>
+                  <span>Descargar</span>
+                </button>
+              </a>
+            </div>
             <h1 className="text-3xl mb-2">Información de la imagen</h1>
             <p className="text-xl">
               <span className="font-bold">Título: </span>
@@ -76,22 +94,6 @@ const Page: React.FC<Props> = async ({ params }) => {
                 response.user.last_name ?? ""
               }`}
             </p>
-            <a
-              href={response.links.download}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-                <svg
-                  className="fill-current w-4 h-4 mr-2"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                </svg>
-                <span>Descargar</span>
-              </button>
-            </a>
           </div>
         </div>
       </section>
